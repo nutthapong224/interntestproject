@@ -1,13 +1,22 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Container, Grid, TextField, Button, Typography, Box } from '@mui/material';
-import { getToken } from './utills/auth'; // Import your utility to get the token
+import { getToken , removeToken} from './utills/auth'; // Import your utility to get the token 
+import { useNavigate } from 'react-router-dom';
+
 
 const URLShortener = () => {
     const [url, setUrl] = useState('');
     const [shortUrl, setShortUrl] = useState('');
     const [qrcode, setQrcode] = useState('');
-    const [errorMessage, setErrorMessage] = useState('');
+    const [errorMessage, setErrorMessage] = useState(''); 
+    const navigate = useNavigate();
+   
+
+    const handleLogout = () => {
+        removeToken();
+        navigate('/');
+    };
 
     const handleUrlChange = (e) => {
         setUrl(e.target.value);
@@ -86,7 +95,7 @@ const URLShortener = () => {
                             {shortUrl}
                         </a>
                     </Typography>
-                </Box>
+                </Box> 
             )}
 
             {qrcode && (
@@ -95,6 +104,10 @@ const URLShortener = () => {
                     <img src={qrcode} alt="QR Code" style={{ maxWidth: '100%', height: 'auto' }} />
                 </Box>
             )}
+                <Button variant="contained" color="secondary" onClick={handleLogout}>
+                    Logout
+                </Button> 
+        
         </Container>
     );
 };

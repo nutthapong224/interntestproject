@@ -4,7 +4,8 @@ import Shorturl from "./Shorturl";
 import History from "./History";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Login from './Login'
-import Home from './Home'
+import Home from './Home' 
+import Navbar from "./Navbar";
 // Create a Material-UI theme with the Kanit font
 const theme = createTheme({
   typography: {
@@ -20,7 +21,8 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
-        <div className="container">
+        <div className="container"> 
+        <Navbar />
           <Routes>
             <Route path="/" element={<Login />} />
           

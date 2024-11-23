@@ -16,7 +16,7 @@ const Login = () => {
         try {
             const response = await axios.post(`${import.meta.env.VITE_API_URL}/auth/login`, { email, password });
             setToken(response.data.token);
-            navigate('/home');
+            navigate('/shorturl');
         } catch (err) {
             setError(err.response?.data?.error || 'Login failed');
         }
