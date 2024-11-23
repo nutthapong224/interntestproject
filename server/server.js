@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
-const urlshortRoutes = require('./routes/urlshortRoutes');
+const urlshortRoutes = require('./routes/urlshortRoutes'); 
+const urlRoutes = require('./routes/urlRoutes');
 const authRoutes = require('./routes/authRoutes');
 require('dotenv').config();
 
@@ -10,7 +11,7 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-app.use('/api', urlshortRoutes); 
+app.use('/api', urlRoutes); 
 app.use('/', urlshortRoutes); 
 app.use('/api/auth', authRoutes);
 
