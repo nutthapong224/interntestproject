@@ -10,7 +10,7 @@ const Home = () => {
 
     const handleLogout = () => {
         removeToken();
-        navigate('/login');
+        navigate('/');
     };
 
     return (
